@@ -13,6 +13,10 @@ var repository = [
   types: ["monster", "water 1"]},
 ];
 
-for (var i = 0; i < repository.length; i++) {
-      document.write(repository[i].name + " (height: " + repository[i].height + " )" );
+for (var i = 0; i < repository.length; i++) {;
+  if(repository[i].height > 0.6){
+    document.write("<p>" + repository[i].name + " (height: " + repository[i].height + ") - WOW, that´s big!</p>")
+  }else{
+    document.write("<p>" +repository[i].name + " (height: " + repository[i].height + ")</p>")
+  }
 }
