@@ -1,4 +1,5 @@
-var repository = [
+var pokemonRepository = (function (){
+  var repository = [
   {
   name: "Bulbasur",
   height: 0.7,
@@ -13,7 +14,22 @@ var repository = [
   types: ["monster", "water 1"]},
 ];
 
-repository.forEach (function(currentItem){
+  function add (pokemon) {
+    repository.push(pokemon);
+  }
+
+  function getAll() {
+    return repository;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+ };
+})();
+
+
+pokemonRepository.getAll().forEach(function(currentItem) {
     if(currentItem.height > 0.6){
     document.write("<p>" + currentItem.name + " (height: " + currentItem.height + ") - WOW, that´s big!</p>")
   }else{
