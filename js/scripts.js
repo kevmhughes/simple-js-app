@@ -1,4 +1,6 @@
 var pokemonRepository = (function (){
+
+  //repository of pokemons
   var repository = [
   {
   name: "Bulbasur",
@@ -14,25 +16,37 @@ var pokemonRepository = (function (){
   types: ["monster", "water 1"]},
 ];
 
+  //adds a new pokemon
   function add (pokemon) {
     repository.push(pokemon);
   }
-
+  //returns the complete repository
   function getAll() {
     return repository;
+  }
+ 
+  function addListItem (pokemon) {
+    var $pokemonList = document.querySelector("ul");
+    var listItem = document.createElement("li");
+    var button = document.createElement("button");
+    
+    button.innerText = pokemon.name;
+    button.classList.add('buttonStyle');
+    
+    $pokemonList.appendChild(listItem);
+    listItem.appendChild(button);
   }
 
   return {
     add: add,
-    getAll: getAll
- };
+    getAll: getAll,
+    addListItem: addListItem,
+  };
 })();
 
 
-pokemonRepository.getAll().forEach(function(currentItem) {
-    if(currentItem.height > 0.6){
-    document.write("<p>" + currentItem.name + " (height: " + currentItem.height + ") - WOW, that´s big!</p>")
-  }else{
-    document.write("<p>" +  currentItem.name + " (height: " + currentItem.height + ")</p>")
-  }
+pokemonRepository.getAll().forEach(function(pokemon) {
+pokemonRepository.addListItem(pokemon);
 });
+
+

@@ -1,0 +1,11 @@
+.buttonStyle {
+  border: 1px red solid;
+  height: 20px;
+  width: 100px;
+  margin-bottom:2px;
+  background-color: white;
+}
+
+.pokemon-list {
+  list-style: none;
+}
