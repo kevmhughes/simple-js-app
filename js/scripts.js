@@ -14,6 +14,22 @@ var pokemonRepository = (function (){
   name: "Squirtle",
   height: 0.5,
   types: ["monster", "water 1"]},
+    {
+  name: "Venusaur",
+  height: 0.7,
+  types: ["grass", "jmonster"]},
+  {
+  name: "Charmeleon",
+  height: 0.6,
+  types: ["monster", "dragon"]},
+    {
+  name: "Venu",
+  height: 0.7,
+  types: ["grass", "jmonster"]},
+  {
+  name: "Leon",
+  height: 0.6,
+  types: ["monster", "dragon"]},
 ];
 
   //adds a new pokemon
@@ -24,19 +40,28 @@ var pokemonRepository = (function (){
   function getAll() {
     return repository;
   }
- 
+  function showDetails(pokemon){
+    console.log(pokemon.name)
+  }
   function addListItem (pokemon) {
+
     var $pokemonList = document.querySelector("ul");
     var listItem = document.createElement("li");
-    var button = document.createElement("button");
+    listItem.classList.add("pokemon-list_item");
     
+    var button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add('buttonStyle');
     
+    
     $pokemonList.appendChild(listItem);
     listItem.appendChild(button);
+    button.addEventListener("click", function(event){
+      showDetails(pokemon);
+    });
   }
-
+  
+  
   return {
     add: add,
     getAll: getAll,
@@ -48,5 +73,7 @@ var pokemonRepository = (function (){
 pokemonRepository.getAll().forEach(function(pokemon) {
 pokemonRepository.addListItem(pokemon);
 });
+
+
 
 
