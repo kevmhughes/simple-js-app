@@ -44,7 +44,10 @@ var pokemonRepository = (function (){
       console.error(e);
     })
   }
-
+  function showDetails(pokemon) {
+  loadDetails(pokemon).then(function () {
+    console.log(pokemon);   });
+}
   function loadDetails(item) {
     var url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -74,9 +77,6 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
- function showDetails(pokemon) {
-  pokemonRepository.loadDetails(pokemon).then(function () {
-    console.log(pokemon);   });
-}
+ 
 
 
